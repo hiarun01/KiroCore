@@ -1,13 +1,19 @@
-export {Header} from "./Header";
-export {Footer} from "./Footer";
-export {Hero} from "./Hero";
-export {About} from "./About";
-export {DocsContent} from "./DocsContent";
-export {ChatArea} from "./ChatArea";
-export {MessageList} from "./MessageList";
-export {UserMessage} from "./UserMessage";
-export {AIMessage} from "./AIMessage";
-export {EmptyState} from "./EmptyState";
-export {MessageInput} from "./MessageInput";
-export {ThemeToggle} from "./ThemeToggle";
-export {ScrollToTop} from "./ScrollToTop";
+// Layout Components
+export {Header} from "./layout/Header";
+export {Footer} from "./layout/Footer";
+
+// Section Components
+export {Hero} from "./sections/Hero";
+export {About} from "./sections/About";
+export {DocsContent} from "./sections/DocsContent";
+
+// Chat Components
+export {ChatArea} from "./chat/ChatArea";
+export {MessageList} from "./chat/MessageList";
+export {UserMessage} from "./chat/UserMessage";
+export {AIMessage} from "./chat/AIMessage";
+export {EmptyState} from "./chat/EmptyState";
+export {MessageInput} from "./chat/MessageInput";
+
+// UI Components
+export {ScrollToTop} from "./ui/ScrollToTop";

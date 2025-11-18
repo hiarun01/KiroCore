@@ -41,9 +41,9 @@ export function ChatArea({welcomeMessage, appIcon}: ChatAreaProps) {
   };
 
   return (
-    <main className="flex flex-col h-screen pt-16 pb-12">
+    <main className="flex flex-col h-screen pt-14 sm:pt-16 pb-12 sm:pb-14">
       <div className="flex-1 overflow-hidden flex flex-col items-center">
-        <div className="w-full max-w-3xl flex-1 flex flex-col">
+        <div className="w-full max-w-4xl flex-1 flex flex-col px-2 sm:px-4">
           {messages.length === 0 ? (
             <EmptyState welcomeMessage={welcomeMessage} appIcon={appIcon} />
           ) : (
@@ -52,8 +52,8 @@ export function ChatArea({welcomeMessage, appIcon}: ChatAreaProps) {
         </div>
       </div>
 
-      <div className="flex justify-center px-4">
-        <div className="w-full max-w-3xl">
+      <div className="flex justify-center px-3 sm:px-4 md:px-6">
+        <div className="w-full max-w-4xl">
           <MessageInput onSend={handleSendMessage} disabled={isLoading} />
         </div>
       </div>

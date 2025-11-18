@@ -1,6 +1,6 @@
-import {Header} from "@/core/components/Header";
-import {Footer} from "@/core/components/Footer";
-import {DocsContent} from "@/core/components/DocsContent";
+import {Header} from "@/core/components/layout/Header";
+import {Footer} from "@/core/components/layout/Footer";
+import {DocsContent} from "@/core/components/sections/DocsContent";
 
 const appConfig = {
   name: "kiroCore",

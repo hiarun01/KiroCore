@@ -25,7 +25,7 @@ export function EmptyState({welcomeMessage, appIcon = "👻"}: EmptyStateProps) 
         {welcomeMessage}
       </h2>
 
-      <p className="text-zinc-400 text-center max-w-md">
+      <p className="text-zinc-400 text-center max-w-md mx-auto">
         Start a conversation by typing a message below. I'm here to help! 💀
       </p>
     </motion.div>

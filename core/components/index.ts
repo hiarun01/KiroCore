@@ -9,6 +9,7 @@ export {DocsContent} from "./sections/DocsContent";
 
 // Chat Components
 export {ChatArea} from "./chat/ChatArea";
+export {ChatSidebar} from "./chat/ChatSidebar";
 export {MessageList} from "./chat/MessageList";
 export {UserMessage} from "./chat/UserMessage";
 export {AIMessage} from "./chat/AIMessage";

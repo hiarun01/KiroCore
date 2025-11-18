@@ -16,11 +16,11 @@ export function AIMessage({content, timestamp}: MessageProps) {
         👻
       </span>
       <div className="flex-1 max-w-[80%]">
-        <div className="bg-zinc-800 rounded-2xl px-4 py-3 shadow-[0_0_20px_rgba(139,92,246,0.3)]">
-          <p className="text-sm text-zinc-100 whitespace-pre-wrap break-words">
+        <div className="bg-zinc-800/80 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg border border-zinc-700/50">
+          <p className="text-sm text-zinc-100 whitespace-pre-wrap leading-relaxed">
             {content}
           </p>
-          <time className="text-xs text-zinc-400 mt-1 block">
+          <time className="text-xs text-zinc-500 mt-2 block">
             {timestamp.toLocaleTimeString([], {
               hour: "2-digit",
               minute: "2-digit",

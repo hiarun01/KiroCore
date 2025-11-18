@@ -12,9 +12,9 @@ export function UserMessage({content, timestamp}: MessageProps) {
       animate="visible"
       variants={messageVariants}
     >
-      <div className="max-w-[80%] bg-purple-700 text-white rounded-2xl px-4 py-3">
-        <p className="text-sm whitespace-pre-wrap break-words">{content}</p>
-        <time className="text-xs opacity-70 mt-1 block">
+      <div className="max-w-[80%] bg-linear-to-br from-primary to-purple-700 text-white rounded-2xl px-4 py-3 shadow-lg">
+        <p className="text-sm whitespace-pre-wrap leading-relaxed">{content}</p>
+        <time className="text-xs opacity-70 mt-2 block">
           {timestamp.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",

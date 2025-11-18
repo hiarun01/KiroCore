@@ -1,8 +1,8 @@
-import {Header} from "@/core/components/Header";
-import {Footer} from "@/core/components/Footer";
-import {Hero} from "@/core/components/Hero";
-import {About} from "@/core/components/About";
-import {ScrollToTop} from "@/core/components/ScrollToTop";
+import {Header} from "@/core/components/layout/Header";
+import {Footer} from "@/core/components/layout/Footer";
+import {Hero} from "@/core/components/sections/Hero";
+import {About} from "@/core/components/sections/About";
+import {ScrollToTop} from "@/core/components/ui/ScrollToTop";
 
 // Hardcoded config for MVP
 const appConfig = {
@@ -31,6 +31,7 @@ export default function Home() {
       <Footer
         attribution={appConfig.footer.attribution}
         links={appConfig.footer.links}
+        fixed={false}
       />
 
       {/* Scroll to top button */}

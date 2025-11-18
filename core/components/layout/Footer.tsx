@@ -4,13 +4,20 @@ import {motion} from "framer-motion";
 import {FooterProps} from "@/core/types/components";
 import {footerVariants} from "@/core/lib/animations";
 
+interface ExtendedFooterProps extends FooterProps {
+  fixed?: boolean;
+}
+
 export function Footer({
   attribution = "Built with Kiro",
   links = [],
-}: FooterProps) {
+  fixed = true,
+}: ExtendedFooterProps) {
   return (
     <motion.footer
-      className="fixed bottom-0 left-0 right-0 z-40 h-12 sm:h-14 backdrop-blur-md bg-zinc-950/90 border-t border-zinc-800"
+      className={`${
+        fixed ? "fixed bottom-0 left-0 right-0 z-40" : "relative"
+      } h-12 sm:h-14 backdrop-blur-md bg-zinc-950/90 border-t border-zinc-800`}
       initial="hidden"
       animate="visible"
       variants={footerVariants}

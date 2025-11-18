@@ -1,5 +1,8 @@
 export {Header} from "./Header";
 export {Footer} from "./Footer";
+export {Hero} from "./Hero";
+export {About} from "./About";
+export {DocsContent} from "./DocsContent";
 export {ChatArea} from "./ChatArea";
 export {MessageList} from "./MessageList";
 export {UserMessage} from "./UserMessage";
@@ -7,3 +10,4 @@ export {AIMessage} from "./AIMessage";
 export {EmptyState} from "./EmptyState";
 export {MessageInput} from "./MessageInput";
 export {ThemeToggle} from "./ThemeToggle";
+export {ScrollToTop} from "./ScrollToTop";

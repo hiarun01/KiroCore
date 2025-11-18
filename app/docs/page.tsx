@@ -1,10 +1,7 @@
 import {Header} from "@/core/components/Header";
 import {Footer} from "@/core/components/Footer";
-import {Hero} from "@/core/components/Hero";
-import {About} from "@/core/components/About";
-import {ScrollToTop} from "@/core/components/ScrollToTop";
+import {DocsContent} from "@/core/components/DocsContent";
 
-// Hardcoded config for MVP
 const appConfig = {
   name: "kiroCore",
   icon: "👻",
@@ -12,29 +9,22 @@ const appConfig = {
     attribution: "Built with Kiro 💀",
     links: [
       {label: "GitHub", href: "https://github.com"},
-      {label: "Docs", href: "https://docs.example.com"},
+      {label: "Home", href: "/"},
     ],
   },
 };
 
-export default function Home() {
+export default function DocsPage() {
   return (
-    <div className="min-h-screen bg-zinc-950 overflow-x-hidden">
+    <div className="min-h-screen bg-zinc-950">
       <Header appName={appConfig.name} appIcon={appConfig.icon} />
 
-      {/* Hero Section */}
-      <Hero />
-
-      {/* About Section */}
-      <About />
+      <DocsContent />
 
       <Footer
         attribution={appConfig.footer.attribution}
         links={appConfig.footer.links}
       />
-
-      {/* Scroll to top button */}
-      <ScrollToTop />
     </div>
   );
 }

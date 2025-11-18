@@ -1,7 +1,7 @@
 "use client";
 
 import {motion} from "framer-motion";
-import {floatingVariants} from "@/core/lib/animations";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -12,12 +12,18 @@ export function Hero() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
+      <div className="relative z-10 max-w-5xl mx-auto text-center mt-5">
         {/* Floating ghost icon */}
         <motion.div
           className="text-9xl mb-8 inline-block"
-          variants={floatingVariants}
-          animate="animate"
+          animate={{
+            y: [0, -10, 0],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         >
           👻
         </motion.div>
@@ -30,7 +36,7 @@ export function Hero() {
           transition={{duration: 0.6, delay: 0.2}}
         >
           Welcome to{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-purple-400">
             kiroCore
           </span>
         </motion.h1>
@@ -53,15 +59,15 @@ export function Hero() {
           animate={{opacity: 1, y: 0}}
           transition={{duration: 0.6, delay: 0.6}}
         >
-          <a
-            href="#chat"
+          <Link
+            href="/chat"
             className="group relative px-8 py-4 bg-primary text-white rounded-xl font-semibold text-lg hover:scale-105 active:scale-95 transition-transform shadow-[0_0_30px_rgba(139,92,246,0.4)] hover:shadow-[0_0_40px_rgba(139,92,246,0.6)]"
           >
-            Try
+            Start Chatting
             <span className="ml-2 inline-block group-hover:translate-x-1 transition-transform">
               →
             </span>
-          </a>
+          </Link>
 
           <a
             href="https://github.com"

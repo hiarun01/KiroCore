@@ -13,8 +13,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kiro App",
-  description: "Universal Kiro App Foundation",
+  title: "kiroCore - One Skeleton, Endless AI Apps",
+  description:
+    "Universal AI agent app foundation. Build multiple AI applications from a single codebase.",
+  icons: {
+    icon: [
+      {
+        url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👻</text></svg>",
+        type: "image/svg+xml",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

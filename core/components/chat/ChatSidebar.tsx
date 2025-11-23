@@ -65,6 +65,7 @@ export function ChatSidebar({isOpen, setIsOpen}: ChatSidebarProps) {
           </svg>
         </button>
       )}
+      
 
       {/* Sidebar */}
       <AnimatePresence>

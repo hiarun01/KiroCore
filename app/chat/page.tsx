@@ -1,8 +1,7 @@
 "use client";
 
+import {ChatArea, ChatSidebar} from "@/core/components";
 import {useState} from "react";
-import {ChatArea} from "@/core/components/chat/ChatArea";
-import {ChatSidebar} from "@/core/components/chat/ChatSidebar";
 
 // Hardcoded config for MVP
 const appConfig = {

@@ -6,10 +6,11 @@
 
 ### Tech Stack
 
-- **Frontend**: Next.js 16, React 19, TypeScript, Tailwind CSS, Framer Motion
-- **Backend**: Express.js, Node.js
-- **AI**: OpenAI API (production) / Kiro Agents (development)
+- **Frontend**: Next.js 16, React 19, TypeScript, Tailwind CSS 4, Framer Motion
+- **Backend**: Express.js, Node.js, CORS
+- **AI**: Kiro CLI integration with intelligent fallback system
 - **Styling**: Dark mode only, ghostly aesthetic with purple accents
+- **State Management**: React hooks, localStorage for persistence
 
 ### Core Concept
 
@@ -30,18 +31,34 @@ Instead of building separate apps, KiroCore provides:
 kirocore/
 ├── app/                    # Next.js app directory
 │   ├── page.tsx           # Home page with hero
+│   ├── chat/              # Chat page
 │   ├── [appType]/         # Dynamic routes for different apps
 │   └── layout.tsx         # Root layout with theme provider
 ├── core/                   # Reusable core components
 │   ├── components/        # UI components (Header, Footer, Chat, Hero)
-│   ├── lib/               # Utilities and animations
-│   ├── types/             # TypeScript interfaces
-│   └── hooks/             # Custom React hooks
+│   │   ├── chat/         # Chat components (ChatArea, Sidebar, Messages)
+│   │   ├── layout/       # Layout components (Header, Footer)
+│   │   ├── sections/     # Section components (Hero, About, Docs)
+│   │   └── ui/           # UI utilities (ScrollToTop)
+│   ├── services/         # API services and integrations
+│   ├── lib/              # Utilities and animations
+│   └── types/            # TypeScript interfaces
 ├── apps/                   # Agent configurations
-│   ├── study-buddy/       # StudyBuddy AI tutor config
-│   └── idea-forge/        # IdeaForge startup advisor config
-└── server/                 # Express backend
-    └── server.js          # API routes
+│   ├── study-buddy/       # StudyBuddy AI tutor
+│   │   ├── .kiro/        # Kiro config (steering, hooks)
+│   │   └── agent.config.js
+│   └── idea-forge/        # IdeaForge creative partner
+│       ├── .kiro/        # Kiro config (steering, hooks)
+│       └── agent.config.js
+├── server/                 # Express backend
+│   ├── index.js          # Server entry point
+│   ├── routes/           # API routes (chat, apps)
+│   ├── services/         # Business logic (kiro-service, app-service)
+│   └── test-simple.js    # Backend tests
+└── .kiro/                  # Root Kiro configuration
+    ├── steering.md       # Project guidelines
+    ├── specs/            # Feature specifications
+    └── hooks/            # Automation hooks
 ```
 
 ### Component Guidelines
@@ -146,18 +163,25 @@ Express server at `server/server.js` handles:
 - `/api/config/:appType` - Get agent config
 - Middleware for CORS, JSON parsing
 
-### OpenAI Integration (Production)
+### Kiro CLI Integration
+
+The backend integrates with Kiro CLI to execute agents:
 
 ```javascript
-// Use agent config to customize system prompt
-const response = await openai.chat.completions.create({
-  model: "gpt-4",
-  messages: [
-    {role: "system", content: agentConfig.systemPrompt},
-    {role: "user", content: userMessage},
-  ],
+// Execute Kiro agent with app-specific config
+const response = await executeKiroAgent({
+  appType: "study-buddy",
+  message: userMessage,
+  conversationHistory: previousMessages,
 });
 ```
+
+**Fallback System:**
+
+- Tries Kiro CLI first
+- Falls back to intelligent mock responses if Kiro unavailable
+- Ensures app always works, even without Kiro CLI
+- Different responses for each app type (StudyBuddy vs IdeaForge)
 
 ---
 

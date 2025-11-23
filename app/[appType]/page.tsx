@@ -1,6 +1,4 @@
-import {Header} from "@/core/components/Header";
-import {Footer} from "@/core/components/Footer";
-import {ChatArea} from "@/core/components/ChatArea";
+import {ChatArea, Footer, Header} from "@/components";
 
 // Hardcoded config for MVP
 const appConfig = {
@@ -11,7 +9,7 @@ const appConfig = {
     attribution: "Built with Kiro 💀",
     links: [
       {label: "GitHub", href: "https://github.com"},
-      {label: "Docs", href: "https://docs.example.com"},
+      {label: "Docs", href: "http://localhost:3000//docs"},
     ],
   },
 };

@@ -1,8 +1,4 @@
-import {Header} from "@/core/components/layout/Header";
-import {Footer} from "@/core/components/layout/Footer";
-import {Hero} from "@/core/components/sections/Hero";
-import {About} from "@/core/components/sections/About";
-import {ScrollToTop} from "@/core/components/ui/ScrollToTop";
+import {About, Footer, Header, Hero, ScrollToTop} from "@/core/components";
 
 // Hardcoded config for MVP
 const appConfig = {

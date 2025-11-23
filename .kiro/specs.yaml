@@ -38,24 +38,39 @@ specs_usage:
     - name: universal-kiro-app
       path: .kiro/specs/universal-kiro-app/
       status: completed
-      description: Core UI components (Header, Footer, Chat, Hero)
-
-  future_specs:
-    - name: agent-config-system
-      description: Dynamic agent config loader and personality switcher
-      priority: high
+      description: Core UI components (Header, Footer, Chat, Hero, Sidebar)
 
     - name: backend-api-integration
-      description: Express backend with OpenAI API integration
-      priority: high
+      path: server/
+      status: completed
+      description: Express backend with Kiro CLI integration and fallback system
 
     - name: studybuddy-app
-      description: AI tutor app configuration and customization
-      priority: medium
+      path: apps/study-buddy/
+      status: completed
+      description: AI tutor app with educational personality and .kiro config
 
     - name: ideaforge-app
-      description: Startup idea generator app configuration
+      path: apps/idea-forge/
+      status: completed
+      description: Creative brainstorming partner with .kiro config
+
+  future_specs:
+    - name: frontend-backend-connection
+      description: Connect ChatArea component to Express backend API
+      priority: high
+
+    - name: chat-history-persistence
+      description: localStorage integration for persistent chat history
       priority: medium
+
+    - name: dynamic-app-routing
+      description: Implement [appType] dynamic routing for multi-app support
+      priority: medium
+
+    - name: app-switcher-ui
+      description: UI component to switch between StudyBuddy and IdeaForge
+      priority: low
 
 best_practices:
   - Start with clear requirements before coding

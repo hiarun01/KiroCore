@@ -129,13 +129,33 @@ export const hooks = {
   syncAgentConfigs: {
     name: "Sync agent configs",
     trigger: "onSave",
-    filePattern: "apps/*/agent.config.ts",
+    filePattern: "apps/*/agent.config.{ts,js}",
     action: "sync",
     description: "Syncs agent configs to backend when modified",
-    enabled: false, // Enable when backend is set up
+    enabled: true, // Backend is set up!
     prompt: `
       Agent config at {filePath} was updated.
-      Restart the Express server to load the new config.
+      The backend will automatically reload this config on next request.
+      No restart needed - configs are loaded dynamically!
+    `,
+  },
+
+  /**
+   * Hook: Test backend on save
+   * Trigger: When backend files are modified
+   * Action: Run backend tests
+   */
+  testBackendOnSave: {
+    name: "Test backend on save",
+    trigger: "onSave",
+    filePattern: "server/**/*.js",
+    action: "test",
+    description: "Runs backend tests when server files change",
+    enabled: true,
+    prompt: `
+      Backend file {fileName} was modified.
+      Run: node server/test-simple.js
+      to verify everything still works.
     `,
   },
 };

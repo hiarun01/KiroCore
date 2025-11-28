@@ -1,5 +1,5 @@
 "use client";
-
+import {FiSidebar} from "react-icons/fi";
 import {ChatArea} from "@/core/components";
 import {Sidebar} from "@/core/components/chat/Sidebar";
 import Link from "next/link";
@@ -117,25 +117,18 @@ export default function AppPage() {
       />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col lg:ml-64 relative">
-        {/* Mobile Menu Button - Floating */}
+      <div
+        className={`flex-1 flex flex-col transition-all duration-300 ${
+          sidebarOpen ? "lg:ml-64" : "lg:ml-0"
+        } relative`}
+      >
+        {/* Sidebar Toggle Button */}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-zinc-900 hover:bg-zinc-800 rounded-lg transition-colors border border-zinc-800 shadow-lg"
+          className="fixed top-4 left-4 z-50 p-2 bg-zinc-900 hover:bg-zinc-800 rounded-lg transition-colors border border-zinc-800 shadow-lg"
+          aria-label={sidebarOpen ? "Close sidebar" : "Open sidebar"}
         >
-          <svg
-            className="w-6 h-6 text-zinc-100"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          {sidebarOpen ? <FiSidebar /> : <FiSidebar />}
         </button>
 
         {/* Floating Menu Button - Top Right */}

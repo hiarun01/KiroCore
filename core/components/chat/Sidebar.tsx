@@ -33,16 +33,17 @@ export function Sidebar({
     string | null
   >(null);
 
-  useEffect(() => {
-    loadConversations();
-  }, [appType]);
-
   const loadConversations = () => {
     const convs = getConversations(appType);
     setConversations(convs);
     const activeId = getActiveConversationId(appType);
     setActiveConversationId(activeId);
   };
+
+  useEffect(() => {
+    loadConversations();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [appType]);
 
   const handleDeleteConversation = (
     conversationId: string,
@@ -71,9 +72,9 @@ export function Sidebar({
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-screen bg-zinc-900 border-r border-zinc-800 z-50 transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:translate-x-0 w-64 flex flex-col`}
+        className={`fixed top-0 left-0 h-screen bg-zinc-900 border-r border-zinc-800 z-50 transition-transform duration-300 w-64 flex flex-col ${
+          isOpen ? "translate-x-0" : "-translate-x-full lg:-translate-x-full"
+        }`}
       >
         {/* Header */}
         <div className="p-4 border-b border-zinc-800">
@@ -123,14 +124,14 @@ export function Sidebar({
                 Recent Chats
               </div>
               {conversations.map((conv) => (
-                <button
+                <div
                   key={conv.id}
-                  onClick={() => handleSelectConversation(conv.id)}
-                  className={`w-full text-left px-3 py-2 rounded-lg transition-colors mb-1 group ${
+                  className={`w-full text-left px-3 py-2 rounded-lg transition-colors mb-1 group cursor-pointer ${
                     conv.id === activeConversationId
                       ? "bg-zinc-800 text-zinc-100"
                       : "text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100"
                   }`}
+                  onClick={() => handleSelectConversation(conv.id)}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex-1 truncate">
@@ -144,6 +145,7 @@ export function Sidebar({
                     <button
                       onClick={(e) => handleDeleteConversation(conv.id, e)}
                       className="opacity-0 group-hover:opacity-100 p-1 hover:bg-zinc-700 rounded transition-opacity"
+                      aria-label="Delete conversation"
                     >
                       <svg
                         className="w-4 h-4"
@@ -160,7 +162,7 @@ export function Sidebar({
                       </svg>
                     </button>
                   </div>
-                </button>
+                </div>
               ))}
             </>
           ) : (
@@ -184,29 +186,6 @@ export function Sidebar({
               </p>
             </div>
           )}
-        </div>
-
-        {/* Footer */}
-        <div className="p-3 border-t border-zinc-800">
-          <Link
-            href="/apps"
-            className="flex items-center gap-3 px-3 py-2 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 rounded-lg transition-colors"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-              />
-            </svg>
-            <span className="text-sm font-medium">Browse Apps</span>
-          </Link>
         </div>
       </aside>
     </>

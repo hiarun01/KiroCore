@@ -1,9 +1,24 @@
+import dotenv from "dotenv";
+import {fileURLToPath} from "url";
+import {dirname, join} from "path";
 import express from "express";
 import cors from "cors";
 import {chatRouter} from "./routes/chat.js";
 import {appsRouter} from "./routes/apps.js";
 import {kiroRouter} from "./routes/kiro.js";
-import {testKiroCLI} from "./services/kiro-service.js";
+import {testGeminiAPI} from "./services/gemini-service.js";
+
+// Load environment variables from server/.env
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+dotenv.config({path: join(__dirname, ".env")});
+
+// Debug: Check if API key is loaded
+console.log(
+  "[Debug] GEMINI_API_KEY loaded:",
+  process.env.GEMINI_API_KEY ? "Yes" : "No"
+);
+console.log("[Debug] API key length:", process.env.GEMINI_API_KEY?.length || 0);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,21 +36,22 @@ app.use("/api/kiro", kiroRouter);
 async function startServer() {
   console.log("🔧 KiroCore Backend Starting...\n");
 
-  // Test Kiro CLI availability
-  const kiroAvailable = await testKiroCLI();
+  // Test Google Gemini AI availability
+  const geminiAvailable = await testGeminiAPI();
 
-  if (kiroAvailable) {
-    console.log("✅ Kiro CLI is available");
+  if (geminiAvailable) {
+    console.log("✅ Google Gemini AI is connected");
   } else {
-    console.log("⚠️  Kiro CLI not found - using fallback responses");
+    console.log("⚠️  Gemini API not configured - using fallback responses");
+    console.log("   To enable AI: Add GEMINI_API_KEY to server/.env");
     console.log(
-      "   To enable Kiro: Install Kiro CLI and ensure it's in PATH\n"
+      "   Get your key at: https://makersuite.google.com/app/apikey\n"
     );
   }
 
   app.listen(PORT, () => {
     console.log(`\n🚀 KiroCore backend running on http://localhost:${PORT}`);
-    console.log(`📚 API Docs: http://localhost:${PORT}/health\n`);
+    console.log(`📡 Chat API: http://localhost:${PORT}/api/chat\n`);
   });
 }
 

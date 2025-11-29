@@ -76,7 +76,7 @@ export function AppBrowser() {
               transition={{duration: 0.4, delay: index * 0.1}}
             >
               <Link href={`/${app.id}`}>
-                <div className="group relative bg-gradient-to-br from-zinc-900 to-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-all duration-300 hover:shadow-lg cursor-pointer overflow-hidden h-full">
+                <div className="group relative from-zinc-900 to-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-all duration-300 hover:shadow-lg cursor-pointer overflow-hidden h-full">
                   {/* Accent bar */}
                   <div
                     className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity"

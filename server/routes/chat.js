@@ -1,5 +1,5 @@
 import express from "express";
-import {executeKiroAgent} from "../services/kiro-service.js";
+import {generateGeminiResponse} from "../services/gemini-service.js";
 
 const router = express.Router();
 
@@ -20,8 +20,8 @@ router.post("/", async (req, res) => {
       message.substring(0, 50) + "..."
     );
 
-    // Execute Kiro agent for the specific app
-    const response = await executeKiroAgent({
+    // Generate response using Google Gemini AI
+    const response = await generateGeminiResponse({
       appType,
       message,
       conversationHistory,

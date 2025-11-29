@@ -3,6 +3,7 @@
 import {motion} from "framer-motion";
 import Link from "next/link";
 import {useEffect, useState} from "react";
+import {DynamicIcon} from "@/core/lib/icons";
 
 type App = {
   id: string;
@@ -75,7 +76,7 @@ export function AppBrowser() {
               transition={{duration: 0.4, delay: index * 0.1}}
             >
               <Link href={`/${app.id}`}>
-                <div className="group relative bg-gradient-to-br from-zinc-900 to-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-all duration-300 hover:shadow-lg cursor-pointer overflow-hidden h-full">
+                <div className="group relative from-zinc-900 to-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-all duration-300 hover:shadow-lg cursor-pointer overflow-hidden h-full">
                   {/* Accent bar */}
                   <div
                     className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -91,35 +92,21 @@ export function AppBrowser() {
                   {/* Content */}
                   <div className="relative z-10 flex flex-col h-full">
                     {/* Icon */}
-                    <div className="text-4xl mb-3">{app.icon}</div>
-
+                    <div className="mb-3">
+                      <DynamicIcon
+                        icon={app.icon}
+                        size={40}
+                        className="text-4xl"
+                      />
+                    </div>
                     {/* Name */}
                     <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white transition-colors mb-2">
                       {app.name}
                     </h3>
-
                     {/* Description */}
                     <p className="text-sm text-zinc-400 group-hover:text-zinc-300 transition-colors mb-4 line-clamp-2 flex-grow">
                       {app.description}
                     </p>
-
-                    {/* Features - Compact */}
-                    <div className="flex flex-wrap gap-1.5 mb-3">
-                      {app.features.slice(0, 2).map((feature, i) => (
-                        <span
-                          key={i}
-                          className="px-2 py-0.5 bg-zinc-800/50 text-zinc-400 text-xs rounded border border-zinc-700/50"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                      {app.features.length > 2 && (
-                        <span className="px-2 py-0.5 text-zinc-500 text-xs">
-                          +{app.features.length - 2}
-                        </span>
-                      )}
-                    </div>
-
                     {/* Launch button */}
                     <div
                       className="flex items-center justify-center gap-2 py-2 px-4 rounded-lg text-sm font-medium transition-all group-hover:translate-x-1"

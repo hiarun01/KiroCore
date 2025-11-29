@@ -3,6 +3,7 @@
 import {motion} from "framer-motion";
 import {EmptyStateProps} from "@/core/types/components";
 import {emptyStateVariants, floatingVariants} from "@/core/lib/animations";
+import {DynamicIcon} from "@/core/lib/icons";
 
 export function EmptyState({welcomeMessage, appIcon = "👻"}: EmptyStateProps) {
   return (
@@ -14,11 +15,11 @@ export function EmptyState({welcomeMessage, appIcon = "👻"}: EmptyStateProps) 
       variants={emptyStateVariants}
     >
       <motion.div
-        className="text-8xl mb-6"
+        className="mb-6"
         variants={floatingVariants}
         animate="animate"
       >
-        {appIcon}
+        <DynamicIcon icon={appIcon} size={96} className="text-8xl" />
       </motion.div>
 
       <h2 className="text-2xl font-semibold text-zinc-100 mb-3 text-center">

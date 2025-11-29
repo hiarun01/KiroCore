@@ -20,7 +20,10 @@ export function MessageList({messages, isLoading}: MessageListProps) {
   }, [messages, isLoading]);
 
   return (
-    <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-6 space-y-4">
+    <div
+      ref={scrollRef}
+      className="flex-1 overflow-y-auto scrollbar-hide px-4 py-6 space-y-4"
+    >
       {messages.map((message) =>
         message.role === "user" ? (
           <UserMessage

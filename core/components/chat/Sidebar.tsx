@@ -8,6 +8,7 @@ import {
   getActiveConversationId,
   type Conversation,
 } from "@/core/services/conversationHistory";
+import {DynamicIcon} from "@/core/lib/icons";
 
 interface SidebarProps {
   appName: string;
@@ -82,7 +83,7 @@ export function Sidebar({
             href="/apps"
             className="flex items-center gap-3 text-zinc-100 hover:text-white transition-colors"
           >
-            <span className="text-2xl">{appIcon}</span>
+            <DynamicIcon icon={appIcon} size={24} className="text-2xl" />
             <span className="font-semibold text-lg">{appName}</span>
           </Link>
         </div>

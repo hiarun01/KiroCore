@@ -2,17 +2,18 @@
 
 import {motion} from "framer-motion";
 import {useState} from "react";
+import {DynamicIcon} from "@/core/lib/icons";
 
 export function DocsContent() {
   const [activeSection, setActiveSection] = useState("getting-started");
 
   const sections = [
-    {id: "getting-started", title: "Getting Started", icon: "🚀"},
-    {id: "installation", title: "Installation", icon: "📦"},
-    {id: "configuration", title: "Configuration", icon: "⚙️"},
-    {id: "creating-apps", title: "Creating Apps", icon: "✨"},
-    {id: "api-reference", title: "API Reference", icon: "📚"},
-    {id: "deployment", title: "Deployment", icon: "🌐"},
+    {id: "getting-started", title: "Getting Started", icon: "HiRocketLaunch"},
+    {id: "installation", title: "Installation", icon: "FiCpu"},
+    {id: "configuration", title: "Configuration", icon: "MdSettings"},
+    {id: "creating-apps", title: "Creating Apps", icon: "HiSparkles"},
+    {id: "api-reference", title: "API Reference", icon: "FiBookOpen"},
+    {id: "deployment", title: "Deployment", icon: "MdRocket"},
   ];
 
   return (
@@ -52,7 +53,11 @@ export function DocsContent() {
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900"
                   }`}
                 >
-                  <span className="text-xl">{section.icon}</span>
+                  <DynamicIcon
+                    icon={section.icon}
+                    size={20}
+                    className="text-xl"
+                  />
                   <span className="font-medium">{section.title}</span>
                 </button>
               ))}

@@ -1,6 +1,6 @@
 {
   "name": "kirocore",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Universal AI agent platform with 2 separate applications: StudyBuddy (AI tutor) and IdeaForge (creative partner). Built for Skeleton Crew hackathon.",
   "private": true,
   "type": "module",
@@ -33,6 +33,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "baseline-browser-mapping": "^2.8.32",
     "eslint": "^9",
     "eslint-config-next": "16.0.2",
     "tailwindcss": "^4",

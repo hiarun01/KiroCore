@@ -5,7 +5,7 @@ import {AppBrowser, Footer, Header} from "@/core/components";
 export default function AppsPage() {
   return (
     <div className="min-h-screen bg-zinc-950">
-      <Header appName="Browse Apps" appIcon="🎯" />
+      <Header appName="Browse Apps" appIcon="FiTarget" />
 
       <main className="pt-20">
         <AppBrowser />

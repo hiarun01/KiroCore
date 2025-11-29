@@ -71,7 +71,7 @@ export async function getAppConfig(appType) {
     return {
       name: config.name || appType,
       description: config.description || "",
-      icon: config.icon || "🤖",
+      icon: config.icon || "BsRobot",
       systemPrompt: config.systemPrompt || "",
       welcomeMessage: config.welcomeMessage || `Welcome to ${appType}!`,
       features: config.features || [],
@@ -93,7 +93,7 @@ function getDefaultConfig(appType) {
     "study-buddy": {
       name: "StudyBuddy",
       description: "Your AI study companion",
-      icon: "📚",
+      icon: "FiBookOpen",
       systemPrompt: "You are a helpful study assistant.",
       welcomeMessage: "Welcome to StudyBuddy! How can I help you learn today?",
       features: ["Explanations", "Examples", "Practice"],
@@ -102,7 +102,7 @@ function getDefaultConfig(appType) {
     "idea-forge": {
       name: "IdeaForge",
       description: "Your creative brainstorming partner",
-      icon: "💡",
+      icon: "HiLightBulb",
       systemPrompt: "You are a creative brainstorming assistant.",
       welcomeMessage: "Welcome to IdeaForge! Let's create something amazing!",
       features: ["Brainstorming", "Refinement", "Innovation"],
@@ -114,7 +114,7 @@ function getDefaultConfig(appType) {
     defaults[appType] || {
       name: appType,
       description: `AI assistant for ${appType}`,
-      icon: "🤖",
+      icon: "BsRobot",
       systemPrompt: "You are a helpful AI assistant.",
       welcomeMessage: `Welcome to ${appType}!`,
       features: [],

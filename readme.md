@@ -45,10 +45,70 @@ Your creative brainstorming partner for developing and refining ideas.
 
 **Both applications run from the same skeleton codebase, demonstrating the platform's versatility.**
 
-## 🚀 Demo Apps
+---
 
-- Challenges assumptions
-- Helps structure thoughts
+## ⚡ Quick Start (2 Minutes)
+
+1. **Install & Run:**
+
+   ```bash
+   npm install && npm run dev
+   ```
+
+2. **Open Browser:**
+
+   - Main: http://localhost:3000
+   - StudyBuddy: http://localhost:3000/study-buddy
+   - IdeaForge: http://localhost:3000/idea-forge
+
+3. **Try It:**
+   - Click "StudyBuddy" → Ask "Explain React hooks"
+   - Click "IdeaForge" → Say "Help me brainstorm a startup idea"
+
+**That's it!** 🎉
+
+---
+
+## 🎬 How It Works
+
+```
+┌─────────────────────────────────────────┐
+│         One Skeleton Codebase           │
+│  (core/, app/, server/)                 │
+└─────────────┬───────────────────────────┘
+              │
+      ┌───────┴───────┐
+      │               │
+┌─────▼─────┐   ┌────▼──────┐
+│ StudyBuddy│   │ IdeaForge │
+│ Config    │   │ Config    │
+│ 📚        │   │ 💡        │
+└───────────┘   └───────────┘
+      │               │
+      └───────┬───────┘
+              │
+      ┌───────▼────────┐
+      │  2 Unique Apps │
+      └────────────────┘
+```
+
+### Adding a New App is Simple:
+
+```javascript
+// apps/my-app/agent.config.js - Just 10 lines!
+export default {
+  name: "CodeMentor",
+  icon: "💻",
+  description: "Your coding mentor",
+  systemPrompt: "You are a helpful coding mentor...",
+  welcomeMessage: "Let's code together!",
+  theme: {primary: "#10b981"},
+};
+```
+
+**That's it!** Navigate to `/my-app` and your new AI app is ready. 🚀
+
+---
 
 ## 🏗️ Architecture
 
@@ -236,10 +296,50 @@ GET /api/apps/:appType
 4. **Production Quality** - Full-stack architecture, not just a demo
 5. **Extensible** - Easy to add new apps in minutes
 
+## 🔧 Troubleshooting
+
+### Port Already in Use
+
+```bash
+# Kill process on port 3000
+npx kill-port 3000
+
+# Or use different port
+PORT=3002 npm run dev:frontend
+```
+
+### Backend Not Connecting
+
+- Check backend is running: http://localhost:3001
+- Verify `.env` files are configured
+- Check CORS settings in `server/index.js`
+
+### App Not Loading
+
+- Clear browser cache (Ctrl+Shift+R)
+- Check console for errors (F12)
+- Verify app config exists in `apps/[app-name]/`
+
+### Kiro CLI Not Found
+
+- App works with fallback responses automatically
+- To enable full Kiro: Install Kiro CLI and add to PATH
+- Check status: `kiro --version`
+
+### Chat History Not Saving
+
+- Check browser localStorage is enabled
+- Clear localStorage and refresh: `localStorage.clear()`
+- Check console for errors
+
+---
+
 ## 🎯 Roadmap
 
-- [ ] Real Kiro CLI integration (currently using mock responses)
-- [ ] Database for persistent chat history
+- [x] Kiro CLI integration with fallback system
+- [x] Multi-conversation history
+- [x] Persistent chat history (localStorage)
+- [ ] Database for cloud sync
 - [ ] User authentication
 - [ ] App marketplace
 - [ ] Custom theme builder
@@ -253,6 +353,19 @@ MIT
 
 Contributions welcome! This is a hackathon project but we're open to improvements.
 
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+
+## 📋 Documentation
+
+- **[Main README](./README.md)** - You are here
+- **[Contributing Guide](./CONTRIBUTING.md)** - How to contribute
+- **[Changelog](./CHANGELOG.md)** - Version history
+- **[Project Assessment](./PROJECT_ASSESSMENT.md)** - Structure analysis
+- **[Kiro Integration](./KIRO_INTEGRATION.md)** - Kiro CLI details
+- **[.kiro Folder](./kiro/README.md)** - Kiro configuration
+
 ---
 
 **Built with 💀 for the Skeleton Crew hackathon**
+
+**Version:** 1.0.0 | **Status:** ✅ Production Ready | **License:** MIT

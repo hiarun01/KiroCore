@@ -4,6 +4,7 @@ import {HeaderProps} from "@/core/types/components";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {KiroStatus} from "@/core/components/status/KiroStatus";
+import {DynamicIcon} from "@/core/lib/icons";
 
 export function Header({appName, appIcon = "👻"}: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
@@ -35,13 +36,12 @@ export function Header({appName, appIcon = "👻"}: HeaderProps) {
             href="/"
             className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity cursor-pointer"
           >
-            <span
+            <DynamicIcon
+              icon={appIcon}
+              size={28}
               className="text-2xl sm:text-3xl"
-              role="img"
               aria-label="App icon"
-            >
-              {appIcon}
-            </span>
+            />
             <h1 className="text-lg sm:text-xl font-semibold text-zinc-100 truncate">
               {appName}
             </h1>

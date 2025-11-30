@@ -1,7 +1,7 @@
 // Framer Motion animation variants
 import type {Variants} from "framer-motion";
 
-export const messageVariants = {
+export const messageVariants: Variants = {
   hidden: {opacity: 0, y: 20, scale: 0.95},
   visible: {
     opacity: 1,

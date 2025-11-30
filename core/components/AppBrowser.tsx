@@ -24,7 +24,7 @@ export function AppBrowser() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(API_URL)
+    fetch(`${API_URL}/api/apps`)
       .then((res) => res.json())
       .then((data) => {
         setApps(data.apps || []);

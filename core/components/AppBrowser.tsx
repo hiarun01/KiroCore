@@ -4,6 +4,7 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {DynamicIcon} from "@/core/lib/icons";
+import {API_URL} from "../services/api";
 
 type App = {
   id: string;
@@ -23,7 +24,7 @@ export function AppBrowser() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/apps")
+    fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {
         setApps(data.apps || []);

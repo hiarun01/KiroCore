@@ -1,11 +1,6 @@
-// Temporary hardcode for testing
-const API_URL = "https://kirocore.onrender.com";
-
-// Debug: Log the API URL being used
-if (typeof window !== "undefined") {
-  console.log("🔍 API_URL:", API_URL);
-  console.log("🔍 NEXT_PUBLIC_API_URL:", process.env.NEXT_PUBLIC_API_URL);
-}
+// API URL with fallback for local development
+export const API_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 export interface ChatMessage {
   role: "user" | "assistant";
@@ -53,11 +48,15 @@ export async function sendChatMessage(
 
 export async function getAllApps(): Promise<AppConfig[]> {
   try {
+    console.log("🔍 Fetching apps from:", `${API_URL}/api/apps`);
     const response = await fetch(`${API_URL}/api/apps`);
+    console.log("🔍 Response status:", response.status);
     if (!response.ok) return [];
     const data = await response.json();
+    console.log("🔍 Apps data:", data);
     return data.apps || [];
-  } catch {
+  } catch (error) {
+    console.error("❌ Error fetching apps:", error);
     return [];
   }
 }

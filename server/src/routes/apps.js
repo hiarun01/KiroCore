@@ -6,6 +6,7 @@ const router = express.Router();
 // GET /api/apps - Get all available apps
 router.get("/", async (req, res) => {
   try {
+    console.log(req.path);
     const apps = await getAllApps();
     res.json({success: true, apps});
   } catch (error) {

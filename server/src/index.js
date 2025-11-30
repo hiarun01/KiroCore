@@ -14,6 +14,9 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const mode = process.env.NODE_ENV || "development";
 
+
+
+
 // CORS configuration
 if (mode === "development") {
   app.use(
@@ -31,6 +34,8 @@ if (mode === "development") {
   );
 }
 
+
+
 app.use(express.json());
 app.use("/api/chat", chatRouter);
 app.use("/api/apps", appsRouter);
@@ -38,3 +43,5 @@ app.use("/api/apps", appsRouter);
 app.listen(PORT, () => {
   console.log(`🚀 Backend running on http://localhost:${PORT}`);
 });
+
+

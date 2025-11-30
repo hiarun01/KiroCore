@@ -1,4 +1,5 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+// Temporary hardcode for testing
+const API_URL = "https://kirocore.onrender.com";
 
 // Debug: Log the API URL being used
 if (typeof window !== "undefined") {

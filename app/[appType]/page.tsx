@@ -183,7 +183,8 @@ export default function AppPage() {
   useEffect(() => {
     if (!appType) return;
 
-    fetch(`http://localhost:3001/api/apps/${appType}`)
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+    fetch(`${API_URL}/api/apps/${appType}`)
       .then((res) => {
         if (!res.ok) throw new Error(`App '${appType}' not found`);
         return res.json();

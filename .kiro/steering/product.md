@@ -65,11 +65,11 @@ One reusable skeleton codebase that powers multiple AI applications through conf
 
 ### Technical
 
-- Deep Kiro CLI integration (hooks, specs, steering)
 - Full-stack architecture with Express backend
-- Google Gemini 2.5 AI integration
+- Google Gemini 2.5 Flash AI integration
 - Performance optimized with React hooks
 - Extensible: new apps can be added in minutes
+- Config-driven with zero code changes needed
 
 ## Architecture Philosophy
 

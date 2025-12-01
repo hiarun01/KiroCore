@@ -53,41 +53,41 @@ KiroCore is a universal AI agent platform that enables developers to create mult
 
 2. WHEN a chat request is received, THE Backend Service SHALL identify the application type and load the corresponding agent configuration.
 
-3. THE Backend Service SHALL attempt to execute Kiro CLI with the application-specific configuration.
+3. THE Backend Service SHALL communicate with Google Gemini API using the application-specific system prompt.
 
-4. IF Kiro CLI execution fails, THEN THE Backend Service SHALL provide an intelligent fallback response based on the application type.
+4. IF Gemini API request fails, THEN THE Backend Service SHALL return an appropriate error message.
 
-5. THE Backend Service SHALL return responses in JSON format with success status, response content, appType, source, and timestamp fields.
+5. THE Backend Service SHALL return responses in JSON format with success status, response content, appType, and timestamp fields.
 
-### Requirement 4: Kiro CLI Integration
+### Requirement 4: Google Gemini Integration
 
-**User Story:** As a system architect, I want to integrate with Kiro CLI, so that the platform can leverage Kiro's AI capabilities.
-
-#### Acceptance Criteria
-
-1. THE Backend Service SHALL detect if Kiro CLI is installed on system startup.
-
-2. WHEN Kiro CLI is available, THE Backend Service SHALL attempt to execute chat commands through the CLI.
-
-3. THE Backend Service SHALL pass application-specific context to Kiro CLI using the app's `.kiro` directory configuration.
-
-4. THE Backend Service SHALL implement a timeout of 30 seconds for Kiro CLI execution.
-
-5. IF Kiro CLI is not available or execution fails, THEN THE Backend Service SHALL log the error and use the fallback system.
-
-### Requirement 5: Intelligent Fallback System
-
-**User Story:** As a user, I want the application to always respond to my messages, so that I have a consistent experience even if the AI service is unavailable.
+**User Story:** As a system architect, I want to integrate with Google Gemini AI, so that the platform can provide intelligent responses.
 
 #### Acceptance Criteria
 
-1. THE Backend Service SHALL maintain a set of fallback responses for each application type.
+1. THE Backend Service SHALL use the Google Generative AI SDK to communicate with Gemini 2.5 Flash.
 
-2. WHEN Kiro CLI execution fails, THE Backend Service SHALL select an appropriate fallback response based on the application type and user message.
+2. WHEN a chat request is received, THE Backend Service SHALL send the message along with conversation history to Gemini.
 
-3. THE Backend Service SHALL indicate the response source (kiro-cli or fallback) in the API response.
+3. THE Backend Service SHALL include the application-specific system prompt to customize AI behavior.
 
-4. THE Backend Service SHALL simulate processing delay of 500-1000ms for fallback responses to maintain natural interaction timing.
+4. THE Backend Service SHALL implement a timeout of 30 seconds for API requests.
+
+5. IF Gemini API is unavailable or request fails, THEN THE Backend Service SHALL return an error message to the frontend.
+
+### Requirement 5: Error Handling
+
+**User Story:** As a user, I want clear error messages when something goes wrong, so that I understand what happened.
+
+#### Acceptance Criteria
+
+1. THE Backend Service SHALL return appropriate HTTP status codes for different error types.
+
+2. WHEN Gemini API fails, THE Backend Service SHALL return a user-friendly error message.
+
+3. THE Backend Service SHALL log errors with sufficient detail for debugging.
+
+4. THE Frontend SHALL display error messages to users in a clear, non-technical way.
 
 ### Requirement 6: Frontend Chat Interface
 
@@ -135,19 +135,19 @@ KiroCore is a universal AI agent platform that enables developers to create mult
 
 4. THE Frontend Client SHALL use next-themes library for theme management.
 
-### Requirement 9: Per-App Kiro Configuration
+### Requirement 9: Per-App Configuration
 
-**User Story:** As a developer, I want each application to have its own Kiro configuration, so that I can customize agent behavior at a granular level.
+**User Story:** As a developer, I want each application to have its own configuration, so that I can customize agent behavior at a granular level.
 
 #### Acceptance Criteria
 
-1. THE KiroCore Platform SHALL support `.kiro` directories within each application folder at `apps/[app-name]/.kiro/`.
+1. THE KiroCore Platform SHALL support configuration files at `apps/[app-name]/agent.config.ts`.
 
-2. WHEN an application has a `.kiro/steering.md` file, THE Backend Service SHALL use it to guide agent behavior for that specific application.
+2. WHEN an application config is loaded, THE Backend Service SHALL use the system prompt to customize Gemini's behavior.
 
-3. THE KiroCore Platform SHALL maintain a root `.kiro` directory for project-wide configuration.
+3. THE KiroCore Platform SHALL maintain documentation in the `.kiro` directory for project-wide guidelines.
 
-4. THE Backend Service SHALL prioritize app-specific Kiro configuration over root configuration when executing agents.
+4. THE Backend Service SHALL load app configurations dynamically without requiring server restarts.
 
 ### Requirement 10: Error Handling and Logging
 

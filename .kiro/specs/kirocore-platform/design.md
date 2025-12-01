@@ -30,15 +30,15 @@ KiroCore is architected as a universal AI agent platform with a clear separation
 │  └───────────────────────────────────────────────────┘  │
 │  ┌───────────────────────────────────────────────────┐  │
 │  │  Services                                         │  │
-│  │  ├─ Kiro Service (CLI Integration)              │  │
+│  │  ├─ Gemini Service (AI Integration)             │  │
 │  │  └─ App Service (Config Loader)                 │  │
 │  └───────────────────────────────────────────────────┘  │
 └────────────────────┬────────────────────────────────────┘
                      │
                      ↓
 ┌─────────────────────────────────────────────────────────┐
-│              Kiro CLI (Optional)                         │
-│  Executes AI agents with app-specific configs           │
+│           Google Gemini 2.5 Flash API                    │
+│  Processes messages with app-specific personalities      │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -113,24 +113,24 @@ interface MessageInputProps {
 
 ### Backend Services
 
-#### Kiro Service
+#### Gemini Service
 
 ```javascript
-interface KiroExecutionParams {
+interface GeminiRequestParams {
   appType: string;
   message: string;
   conversationHistory: Message[];
+  systemPrompt: string;
 }
 
-interface KiroResponse {
+interface GeminiResponse {
   content: string;
   appType: string;
   timestamp: string;
-  source: "kiro-cli" | "fallback";
 }
 
-// Executes Kiro CLI
-// Implements fallback system
+// Communicates with Google Gemini API
+// Manages conversation context
 // Handles errors gracefully
 ```
 
@@ -210,7 +210,6 @@ interface Message {
   success: boolean;              // Request status
   response: string;              // AI response text
   appType: string;               // App identifier
-  source: 'kiro-cli' | 'fallback'; // Response source
   timestamp: string;             // ISO timestamp
   error?: string;                // Error message if failed
 }
@@ -230,8 +229,8 @@ interface Message {
 - Invalid requests: Return 400 with error details
 - Not found: Return 404 for missing apps
 - Server errors: Return 500 with safe error message
-- Kiro CLI failures: Fallback to mock responses
-- Timeout handling: 30-second limit on CLI execution
+- Gemini API failures: Return error with retry suggestion
+- Timeout handling: 30-second limit on API requests
 
 ### Error Flow
 

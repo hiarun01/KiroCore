@@ -4,7 +4,7 @@ This is the root `.kiro` directory for the KiroCore project.
 
 ## What is KiroCore?
 
-KiroCore is a universal AI agent platform that transforms a single codebase into multiple specialized applications through configuration files. Built for the Skeleton Crew hackathon, it demonstrates how one skeleton codebase can power diverse AI applications.
+KiroCore is a universal AI agent platform that transforms a single codebase into multiple specialized applications through configuration files. Built for the Skeleton Crew hackathon, it demonstrates how one skeleton codebase can power diverse AI applications using Google Gemini AI.
 
 ## Core Philosophy
 
@@ -14,17 +14,13 @@ Instead of building separate AI apps from scratch, KiroCore provides:
 
 - **Reusable Core** - Shared UI components, services, and architecture
 - **Config-Driven Apps** - Each app defined by simple configuration
-- **Real AI Integration** - Powered by Google Gemini 2.5 Flash
+- **Google Gemini AI** - Direct integration with Gemini 2.5 Flash
 - **Production Quality** - Full-stack Next.js + Express architecture
 
 ## Project Architecture
 
 ```
 kirocore/
-├── .kiro/                  # Root Kiro configuration (you are here)
-│   ├── steering/          # AI behavior guidance documents
-│   ├── specs/             # Feature specifications
-│   └── hooks/             # Automation hooks
 ├── apps/                   # Individual app configurations
 │   ├── study-buddy/       # Education app
 │   ├── idea-forge/        # Creativity app
@@ -41,7 +37,7 @@ kirocore/
 │   └── [appType]/         # Dynamic app routes
 └── server/                 # Express backend
     ├── routes/            # API endpoints
-    └── services/          # Business logic
+    └── services/          # Gemini AI integration
 ```
 
 ## Current Applications (6 Total)
@@ -151,45 +147,19 @@ The platform automatically:
 - **Animations:** Framer Motion
 - **Icons:** React Icons (Feather, Hero, Material)
 
-## 📁 Folder Structure
+## 📁 Documentation
 
-```
-.kiro/
-├── steering/           # Project guidelines and standards
-│   ├── product.md     # Product overview and concept
-│   ├── structure.md   # Project structure and organization
-│   └── tech.md        # Tech stack and dependencies
-│
-├── specs/             # Feature specifications
-│   ├── kiro-cli-integration/
-│   │   ├── requirements.md
-│   │   ├── design.md
-│   │   └── ARCHITECTURE.md
-│   └── kirocore-platform/
-│       ├── requirements.md
-│       ├── design.md
-│       └── tasks.md
-│
-├── hooks/             # Automation hooks
-│   └── root-hook.ts  # Hook configurations
-│
-└── README.md         # This file
-```
+This `.kiro/` folder contains project documentation:
 
-## Steering Documents
-
-Located in `steering/`, these guide AI behavior:
-
-- `tech.md` - Technology stack and dependencies
-- `structure.md` - Project organization and patterns
-- `product.md` - Product vision and features
+- `README.md` - This file (project overview)
+- `steering/` - Project guidelines (tech stack, structure, product vision)
+- `specs/` - Feature specifications and design docs
 
 ## Adding a New App
 
 1. Create directory: `apps/my-app/`
 2. Add config: `apps/my-app/agent.config.ts`
-3. (Optional) Add Kiro config: `apps/my-app/.kiro/`
-4. Navigate to: `/my-app`
+3. Navigate to: `/my-app`
 
 That's it! The platform handles the rest.
 
@@ -214,10 +184,10 @@ npm run lint         # Code linting
 
 ## Documentation
 
-- **Main README:** [../README.md](../README.md)
 - **Tech Stack:** [steering/tech.md](steering/tech.md)
 - **Project Structure:** [steering/structure.md](steering/structure.md)
 - **Product Overview:** [steering/product.md](steering/product.md)
+- **Platform Design:** [specs/kirocore-platform/design.md](specs/kirocore-platform/design.md)
 
 ## Hackathon Context
 
@@ -225,9 +195,9 @@ Built for the **Skeleton Crew Hackathon** to demonstrate:
 
 - How one skeleton codebase can power multiple specialized apps
 - Config-driven architecture for rapid app development
-- Real AI integration with Google Gemini
+- Direct AI integration with Google Gemini 2.5 Flash
 - Production-quality full-stack implementation
-- Scalability from 2 to 6+ apps
+- Scalability from 1 to 6+ apps in minutes
 
 ## Version
 

@@ -11,14 +11,23 @@ kirocore/
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Home page
 │
-├── apps/                   # App configurations (3+ apps)
+├── apps/                   # App configurations (6 apps)
 │   ├── study-buddy/
 │   │   ├── agent.config.ts
 │   │   └── README.md
 │   ├── idea-forge/
 │   │   ├── agent.config.ts
 │   │   └── README.md
-│   └── code-mentor/
+│   ├── code-mentor/
+│   │   ├── agent.config.ts
+│   │   └── README.md
+│   ├── story-weaver/
+│   │   ├── agent.config.ts
+│   │   └── README.md
+│   ├── wellness-coach/
+│   │   ├── agent.config.ts
+│   │   └── README.md
+│   └── career-navigator/
 │       ├── agent.config.ts
 │       └── README.md
 │
@@ -41,15 +50,19 @@ kirocore/
 │   └── types/             # TypeScript types
 │
 ├── server/                 # Express backend
-│   ├── routes/            # API route handlers
-│   ├── services/          # Business logic
-│   ├── index.js           # Server entry point
+│   ├── src/
+│   │   ├── routes/        # API route handlers
+│   │   │   ├── chat.js
+│   │   │   └── apps.js
+│   │   ├── services/      # Business logic
+│   │   │   ├── gemini-service.js
+│   │   │   └── app-service.js
+│   │   └── index.js       # Server entry point
 │   └── .env.example       # Backend env template
 │
-├── .kiro/                  # Root Kiro configuration
-│   ├── steering/          # Steering documents
-│   ├── specs/             # Feature specifications
-│   └���─ hooks/             # Agent hooks
+├── .kiro/                  # Project documentation
+│   ├── steering/          # Project guidelines
+│   └── specs/             # Feature specifications
 │
 └── public/                 # Static assets
 ```
@@ -61,8 +74,7 @@ kirocore/
 Each app in `apps/` must have:
 
 - `agent.config.js` or `agent.config.ts` - App configuration
-- `.kiro/` directory - App-specific Kiro settings
-- `README.md` - App documentation
+- `README.md` - App documentation (optional)
 
 App config structure:
 
@@ -104,10 +116,17 @@ Located in `core/components/ui/`:
 
 ### API Routes
 
-Backend routes in `server/routes/`:
+Backend routes in `server/src/routes/`:
 
-- `chat.js` - Chat endpoints
+- `chat.js` - Chat endpoints with Gemini integration
 - `apps.js` - App management endpoints
+
+### Backend Services
+
+Backend services in `server/src/services/`:
+
+- `gemini-service.js` - Google Gemini AI integration
+- `app-service.js` - App configuration loader
 
 ### Naming Conventions
 

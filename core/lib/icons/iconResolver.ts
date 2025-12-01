@@ -1,5 +1,14 @@
 import {IconType} from "react-icons";
-import {FiBook, FiBookOpen, FiZap, FiTarget, FiCpu} from "react-icons/fi";
+import {
+  FiBook,
+  FiBookOpen,
+  FiZap,
+  FiTarget,
+  FiCpu,
+  FiFeather,
+  FiHeart,
+  FiBriefcase,
+} from "react-icons/fi";
 import {
   HiLightBulb,
   HiBookOpen,
@@ -23,6 +32,9 @@ const ICON_MAP: IconMap = {
   FiZap: FiZap,
   FiTarget: FiTarget,
   FiCpu: FiCpu,
+  FiFeather: FiFeather,
+  FiHeart: FiHeart,
+  FiBriefcase: FiBriefcase,
 
   // Hero Icons
   HiLightBulb: HiLightBulb,

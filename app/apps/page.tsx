@@ -12,10 +12,10 @@ export default function AppsPage() {
       </main>
 
       <Footer
-        attribution="Built with Kiro 💀"
         links={[
-          {label: "GitHub", href: "https://github.com"},
           {label: "Home", href: "/"},
+          {label: "Docs", href: "/docs"},
+          {label: "GitHub", href: "https://github.com/hiarun01/KiroCore"},
         ]}
         fixed={false}
       />

@@ -141,7 +141,7 @@ export function About() {
                 Create Config
               </h4>
               <p className="text-sm text-zinc-400">
-                Define your AI agent's personality, name, and behavior in a
+                Define your AI agent&apos;s personality, name, and behavior in a
                 simple config file
               </p>
             </div>

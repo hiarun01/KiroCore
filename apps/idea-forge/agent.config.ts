@@ -1,4 +1,4 @@
-export default {
+const config = {
   name: "IdeaForge",
   description:
     "Your creative brainstorming partner for developing and refining ideas",
@@ -41,3 +41,5 @@ Be energetic, open-minded, and inspiring!`,
     accent: "#7c3aed",
   },
 };
+
+export default config;

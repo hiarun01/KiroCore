@@ -1,4 +1,4 @@
-export default {
+const config = {
   name: "StudyBuddy",
   description:
     "Your AI study companion that breaks down complex topics into digestible pieces",
@@ -39,3 +39,5 @@ Format your responses with:
     accent: "#93c5fd",
   },
 };
+
+export default config;

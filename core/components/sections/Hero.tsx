@@ -2,8 +2,18 @@
 
 import {motion} from "framer-motion";
 import Link from "next/link";
+import {useEffect, useState} from "react";
+import {getAllApps} from "@/core/services/api";
 
 export function Hero() {
+  const [appCount, setAppCount] = useState(3);
+
+  useEffect(() => {
+    getAllApps().then((apps) => {
+      setAppCount(apps.length);
+    });
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
       {/* Animated background grid */}
@@ -106,7 +116,7 @@ export function Hero() {
           </Link>
 
           <a
-            href="https://github.com"
+            href="https://github.com/hiarun01/KiroCore"
             target="_blank"
             rel="noopener noreferrer"
             className="group px-8 py-4 bg-zinc-800/50 backdrop-blur-sm text-zinc-100 rounded-xl font-semibold text-lg hover:bg-zinc-700/50 transition-all border border-zinc-700 hover:border-zinc-600"
@@ -128,9 +138,15 @@ export function Hero() {
           transition={{duration: 0.6, delay: 0.4}}
         >
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-zinc-100 mb-1">
-              3+
-            </div>
+            <motion.div
+              className="text-3xl md:text-4xl font-bold text-zinc-100 mb-1"
+              key={appCount}
+              initial={{scale: 1.2, opacity: 0}}
+              animate={{scale: 1, opacity: 1}}
+              transition={{duration: 0.3}}
+            >
+              {appCount}
+            </motion.div>
             <div className="text-sm text-zinc-500">AI Applications</div>
           </div>
           <div className="text-center">

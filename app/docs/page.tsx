@@ -6,10 +6,10 @@ const appConfig = {
   name: "kiroCore",
   icon: "👻",
   footer: {
-    attribution: "Built with Kiro 💀",
     links: [
-      {label: "GitHub", href: "https://github.com"},
       {label: "Home", href: "/"},
+      {label: "Browse Apps", href: "/apps"},
+      {label: "GitHub", href: "https://github.com/hiarun01/KiroCore"},
     ],
   },
 };
@@ -21,10 +21,7 @@ export default function DocsPage() {
 
       <DocsContent />
 
-      <Footer
-        attribution={appConfig.footer.attribution}
-        links={appConfig.footer.links}
-      />
+      <Footer links={appConfig.footer.links} />
     </div>
   );
 }

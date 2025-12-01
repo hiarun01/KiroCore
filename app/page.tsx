@@ -6,10 +6,10 @@ const appConfig = {
   name: "kiroCore",
   icon: "👻",
   footer: {
-    attribution: "Built with Kiro 💀",
     links: [
-      {label: "GitHub", href: "https://github.com"},
+      {label: "Docs", href: "/docs"},
       {label: "Browse Apps", href: "/apps"},
+      {label: "GitHub", href: "https://github.com/hiarun01/KiroCore"},
     ],
   },
 };
@@ -28,11 +28,7 @@ export default function Home() {
       {/* About Section */}
       <About />
 
-      <Footer
-        attribution={appConfig.footer.attribution}
-        links={appConfig.footer.links}
-        fixed={false}
-      />
+      <Footer links={appConfig.footer.links} fixed={false} />
 
       {/* Scroll to top button */}
       <ScrollToTop />

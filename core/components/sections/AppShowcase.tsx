@@ -139,7 +139,7 @@ export function AppShowcase() {
                       <div className="flex items-start gap-2">
                         <span className="text-xl">👻</span>
                         <p className="text-sm text-zinc-300 italic">
-                          "{app.preview}"
+                          &ldquo;{app.preview}&rdquo;
                         </p>
                       </div>
                     </div>

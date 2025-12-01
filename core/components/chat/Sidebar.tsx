@@ -42,13 +42,10 @@ export function Sidebar({
   }, [appType]);
 
   // Load conversations from localStorage when appType changes
-  // This is a valid use case for setState in useEffect - loading initial data from external source
+
   useEffect(() => {
-    const convs = getConversations(appType);
-    setConversations(convs);
-    const activeId = getActiveConversationId(appType);
-    setActiveConversationId(activeId);
-  }, [appType]);
+    loadConversations();
+  }, [loadConversations]);
 
   const handleDeleteConversation = useCallback(
     (conversationId: string, e: React.MouseEvent) => {

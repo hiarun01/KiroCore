@@ -1,4 +1,4 @@
-export default {
+const config = {
   name: "CodeMentor",
   description: "Your programming tutor for learning to code",
   icon: "FiCode",
@@ -41,3 +41,5 @@ Be patient, encouraging, and make coding fun!`,
     accent: "#6ee7b7",
   },
 };
+
+export default config;

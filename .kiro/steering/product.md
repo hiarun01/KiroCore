@@ -21,9 +21,27 @@ One reusable skeleton codebase that powers multiple AI applications through conf
    - Features: Creative brainstorming, idea refinement, innovation
 
 3. **CodeMentor** (`/code-mentor`) - Programming tutor for developers
+
    - Theme: Green (#10b981)
    - Personality: Patient, knowledgeable coding mentor
    - Features: Code explanations, debugging help, best practices
+
+4. **StoryWeaver** (`/story-weaver`) - Creative writing companion
+
+   - Theme: Purple (#a855f7)
+   - Personality: Imaginative, supportive storyteller
+   - Features: Character development, plot structuring, worldbuilding
+
+5. **WellnessCoach** (`/wellness-coach`) - Personal wellness companion
+
+   - Theme: Pink (#ec4899)
+   - Personality: Warm, empathetic supporter
+   - Features: Mental health support, fitness guidance, stress management
+
+6. **CareerNavigator** (`/career-navigator`) - Professional career advisor
+   - Theme: Amber (#f59e0b)
+   - Personality: Strategic, professional advisor
+   - Features: Career exploration, resume optimization, interview prep
 
 ## Key Features
 

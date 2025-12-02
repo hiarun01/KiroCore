@@ -4,30 +4,16 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {DynamicIcon} from "@/core/lib/icons";
-import {API_URL} from "../services/api";
-
-type App = {
-  id: string;
-  name: string;
-  description: string;
-  icon: string;
-  theme: {
-    primary: string;
-    secondary?: string;
-    accent?: string;
-  };
-  features: string[];
-};
+import {getAllApps, AppConfig} from "../services/api";
 
 export function AppBrowser() {
-  const [apps, setApps] = useState<App[]>([]);
+  const [apps, setApps] = useState<AppConfig[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${API_URL}/api/apps`)
-      .then((res) => res.json())
-      .then((data) => {
-        setApps(data.apps || []);
+    getAllApps()
+      .then((apps) => {
+        setApps(apps);
         setLoading(false);
       })
       .catch((err) => {
@@ -74,7 +60,7 @@ export function AppBrowser() {
               initial={{opacity: 0, y: 20}}
               whileInView={{opacity: 1, y: 0}}
               viewport={{once: true}}
-              transition={{duration: 0.3, delay: index * 0.1}}
+              transition={{duration: 0.3, delay: index * 0.05}}
             >
               <Link href={`/${app.id}`}>
                 <div className="group relative bg-zinc-900/50 border border-zinc-800 rounded-xl p-5 hover:border-zinc-700 hover:bg-zinc-900 transition-all duration-200 cursor-pointer overflow-hidden h-full">

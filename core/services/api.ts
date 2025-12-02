@@ -30,7 +30,11 @@ export interface AppConfig {
   systemPrompt: string;
   welcomeMessage: string;
   features: string[];
-  theme: Record<string, string | number>;
+  theme: {
+    primary: string;
+    secondary?: string;
+    accent?: string;
+  };
 }
 
 export async function sendChatMessage(
@@ -46,18 +50,34 @@ export async function sendChatMessage(
   return response.json();
 }
 
-export async function getAllApps(): Promise<AppConfig[]> {
+// Cache for apps data
+let appsCache: AppConfig[] = [];
+let appsCacheTime: number = 0;
+const CACHE_DURATION = 60000; // 1 minute
+
+export async function getAllApps(forceRefresh = false): Promise<AppConfig[]> {
+  // Return cached data if available and not expired
+  if (
+    !forceRefresh &&
+    appsCache.length > 0 &&
+    Date.now() - appsCacheTime < CACHE_DURATION
+  ) {
+    return appsCache;
+  }
+
   try {
-    console.log("🔍 Fetching apps from:", `${API_URL}/api/apps`);
-    const response = await fetch(`${API_URL}/api/apps`);
-    console.log("🔍 Response status:", response.status);
-    if (!response.ok) return [];
+    const response = await fetch(`${API_URL}/api/apps`, {
+      cache: "force-cache",
+      next: {revalidate: 60},
+    });
+    if (!response.ok) return appsCache;
     const data = await response.json();
-    console.log("🔍 Apps data:", data);
-    return data.apps || [];
+    appsCache = data.apps || [];
+    appsCacheTime = Date.now();
+    return appsCache;
   } catch (error) {
-    console.error("❌ Error fetching apps:", error);
-    return [];
+    console.error("Error fetching apps:", error);
+    return appsCache;
   }
 }
 

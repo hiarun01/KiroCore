@@ -6,11 +6,13 @@ import {useEffect, useState} from "react";
 import {getAllApps} from "@/core/services/api";
 
 export function Hero() {
-  const [appCount, setAppCount] = useState(3);
+  const [appCount, setAppCount] = useState(6);
 
   useEffect(() => {
     getAllApps().then((apps) => {
-      setAppCount(apps.length);
+      if (apps.length > 0) {
+        setAppCount(apps.length);
+      }
     });
   }, []);
 

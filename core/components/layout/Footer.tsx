@@ -25,7 +25,7 @@ export function Footer({
         <p className="text-xs sm:text-sm text-zinc-400">
           Built with Kiro 💀 by{" "}
           <a
-            href="https://x.com/hiarun01"
+            href="https://x.com/hiarun02"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary hover:underline"

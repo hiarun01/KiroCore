@@ -10,16 +10,65 @@ The idea came from watching developers spend weeks building infrastructure inste
 
 KiroCore is a universal AI agent platform that transforms one codebase into multiple specialized applications through simple configuration files. Think of it as a skeleton that can wear different costumes.
 
-**Current Applications:**
+**For this Skeleton Crew submission, we're showcasing two applications built from the same foundation:**
 
-- **StudyBuddy** - Patient AI tutor for learning and education
-- **IdeaForge** - Creative brainstorming partner for innovation
-- **CodeMentor** - Programming tutor for developers
+### 1. StudyBuddy - AI Tutor for Students
+
+StudyBuddy is a patient and encouraging AI tutor designed specifically for students learning new concepts.
+
+**Personality & Approach:**
+
+- Patient and encouraging, never judgmental
+- Breaks down complex topics into simple, digestible steps
+- Uses everyday examples and analogies students can relate to
+- Provides clear explanations with supportive feedback
+
+**Features:**
+
+- Ask questions about any subject (math, science, history, etc.)
+- Get step-by-step explanations with examples
+- Download entire study sessions as PDF for offline review
+- Keyboard shortcuts for quick navigation (press '?' to see all)
+- Conversation history saved on the sidebar
+- Code syntax highlighting for programming questions
+- Copy code blocks with one click
+- Dark mode for comfortable late-night studying
+
+**Use Case:** A high school student struggling with photosynthesis can ask StudyBuddy to explain it. The AI responds with clear, simple language, breaking it down into steps with relatable examples—like comparing chloroplasts to solar panels.
+
+### 2. CodeMentor - Programming Tutor for Developers
+
+CodeMentor is a technical and precise AI mentor built for developers who need coding help.
+
+**Personality & Approach:**
+
+- Technical and precise, like a senior developer
+- Provides code examples with proper syntax highlighting
+- Explains best practices and debugging strategies
+- Focuses on practical, actionable solutions
+
+**Features:**
+
+- Same robust features as StudyBuddy (PDF export, keyboard shortcuts, history)
+- Enhanced code block rendering with syntax highlighting
+- One-click code copying for quick implementation
+- Technical explanations with industry-standard terminology
+- Debugging help and code review suggestions
+
+**Use Case:** A junior developer confused about React hooks can ask CodeMentor. The AI responds with technical precision, code examples, and best practices—speaking the language of developers.
+
+### The Power of One Skeleton
+
+Both apps share the exact same codebase, UI components, and infrastructure. The only difference? A simple configuration file that defines the personality, theme, and behavior. Same skeleton, different costumes.
+
+**Additional Apps (Also Built from the Same Skeleton):**
+
+- **IdeaForge** - Creative brainstorming partner
 - **StoryWeaver** - Creative writing companion
-- **WellnessCoach** - Personal wellness and mental health supporter
+- **WellnessCoach** - Personal wellness supporter
 - **CareerNavigator** - Professional career advisor
 
-Each app has its own personality, theme, and behavior, but they all share the same robust core. Users get a ChatGPT-style interface with conversation history, markdown rendering, code syntax highlighting, PDF export, and dark mode.
+Each app demonstrates the versatility of our skeleton architecture. Users get a ChatGPT-style interface with conversation history, markdown rendering, code syntax highlighting, PDF export, and dark mode—all powered by one reusable foundation.
 
 **Key Features:**
 

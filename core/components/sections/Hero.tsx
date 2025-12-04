@@ -118,7 +118,7 @@ export function Hero() {
           </Link>
 
           <a
-            href="https://github.com/hiarun01/KiroCore"
+            href="https://github.com/hiarun02/KiroCore"
             target="_blank"
             rel="noopener noreferrer"
             className="group px-8 py-4 bg-zinc-800/50 backdrop-blur-sm text-zinc-100 rounded-xl font-semibold text-lg hover:bg-zinc-700/50 transition-all border border-zinc-700 hover:border-zinc-600"

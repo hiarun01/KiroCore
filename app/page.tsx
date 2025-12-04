@@ -9,7 +9,7 @@ const appConfig = {
     links: [
       {label: "Docs", href: "/docs"},
       {label: "Browse Apps", href: "/apps"},
-      {label: "GitHub", href: "https://github.com/hiarun01/KiroCore"},
+      {label: "GitHub", href: "https://github.com/hiarun02/KiroCore"},
     ],
   },
 };
